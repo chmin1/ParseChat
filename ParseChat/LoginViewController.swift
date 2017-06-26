@@ -11,6 +11,30 @@ import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBAction func onScreenTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @IBOutlet weak var usernameLabel: UITextField!
+    
+    @IBOutlet weak var PasswordLabel: UITextField!
+    
+    @IBAction func onLogin(_ sender: Any) {
+        
+        let username = usernameLabel.text ?? ""
+        let password = PasswordLabel.text ?? ""
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print("User log in failed: \(error.localizedDescription)")
+            } else {
+                print("User logged in successfully")
+            }
+        }
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

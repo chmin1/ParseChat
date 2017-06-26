@@ -7,13 +7,48 @@
 //
 
 import UIKit
+import Parse
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UITextField!
+    
+    @IBOutlet weak var emailLabel: UITextField!
+    
+    @IBOutlet weak var passwordLabel: UITextField!
+    
+    @IBAction func onScreenTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func registerNewUser(_ sender: Any) {
+        //new user object created using Parse
+        let newUser = PFUser()
+        
+        //Set user Properties and assign values using text inputs
+        newUser.username = usernameLabel.text
+        newUser.email = emailLabel.text
+        newUser.password = passwordLabel.text
+        
+        // call sign up function on the object
+        
+        
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
+            if let error = error{
+                print("User log in failed: \(error.localizedDescription)")
+            } else {
+                print("User logged in successfully")
+                self.dismiss(animated: true, completion: nil)
+                
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
