@@ -19,6 +19,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var PasswordLabel: UITextField!
     
+    var alertController: UIAlertController!
+    var alertError: String = ""
+    
     @IBAction func onLogin(_ sender: Any) {
         
         let username = usernameLabel.text ?? ""
@@ -27,12 +30,28 @@ class LoginViewController: UIViewController {
         PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
             if let error = error {
                 print("User log in failed: \(error.localizedDescription)")
+                self.alertError = error.localizedDescription
+                self.isLoggedIn()
             } else {
                 print("User logged in successfully")
             }
         }
         
         
+    }
+    
+    func isLoggedIn() {
+        self.alertController = UIAlertController(title: "Login Error", message: alertError, preferredStyle: .alert)
+        
+        //try to connect again
+        let tryAgain = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
+            self.usernameLabel.text = ""
+            self.PasswordLabel.text = ""
+        }
+        
+        // add action to alertController
+        alertController.addAction(tryAgain)
+        present(alertController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

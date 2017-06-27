@@ -17,8 +17,15 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var passwordLabel: UITextField!
     
+    var alertController: UIAlertController!
+    var alertError: String = ""
+    
     @IBAction func onScreenTap(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -42,6 +49,8 @@ class SignUpViewController: UIViewController {
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error{
                 print("User log in failed: \(error.localizedDescription)")
+                self.alertError = error.localizedDescription
+                self.isSignedUp()
             } else {
                 print("User logged in successfully")
                 self.dismiss(animated: true, completion: nil)
@@ -50,6 +59,22 @@ class SignUpViewController: UIViewController {
         }
         
     }
+    
+    func isSignedUp() {
+        self.alertController = UIAlertController(title: "Sign Up Error", message: alertError, preferredStyle: .alert)
+        
+        //try to connect again
+        let tryAgain = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
+            self.usernameLabel.text = ""
+            self.passwordLabel.text = ""
+            self.emailLabel.text = ""
+        }
+        
+        // add action to alertController
+        alertController.addAction(tryAgain)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
