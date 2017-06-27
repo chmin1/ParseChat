@@ -18,6 +18,7 @@
 		F9FCB6661F017CC2005EDAE5 /* ParseChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FCB6651F017CC2005EDAE5 /* ParseChatUITests.swift */; };
 		F9FCB6741F018D65005EDAE5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FCB6731F018D65005EDAE5 /* LoginViewController.swift */; };
 		F9FCB6761F019482005EDAE5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FCB6751F019482005EDAE5 /* SignUpViewController.swift */; };
+		F9FCB6791F022137005EDAE5 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FCB6781F022137005EDAE5 /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F9FCB6671F017CC2005EDAE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9FCB6731F018D65005EDAE5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F9FCB6751F019482005EDAE5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F9FCB6781F022137005EDAE5 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +141,8 @@
 		F9FCB6441F017CC2005EDAE5 /* ParseChat */ = {
 			isa = PBXGroup;
 			children = (
+				F9FCB6771F022118005EDAE5 /* VCs */,
 				F9FCB6451F017CC2005EDAE5 /* AppDelegate.swift */,
-				F9FCB6731F018D65005EDAE5 /* LoginViewController.swift */,
-				F9FCB6751F019482005EDAE5 /* SignUpViewController.swift */,
 				F9FCB6491F017CC2005EDAE5 /* Main.storyboard */,
 				F9FCB64C1F017CC2005EDAE5 /* Assets.xcassets */,
 				F9FCB64E1F017CC2005EDAE5 /* LaunchScreen.storyboard */,
@@ -166,6 +167,16 @@
 				F9FCB6671F017CC2005EDAE5 /* Info.plist */,
 			);
 			path = ParseChatUITests;
+			sourceTree = "<group>";
+		};
+		F9FCB6771F022118005EDAE5 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				F9FCB6731F018D65005EDAE5 /* LoginViewController.swift */,
+				F9FCB6751F019482005EDAE5 /* SignUpViewController.swift */,
+				F9FCB6781F022137005EDAE5 /* ChatViewController.swift */,
+			);
+			name = VCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +463,7 @@
 			files = (
 				F9FCB6761F019482005EDAE5 /* SignUpViewController.swift in Sources */,
 				F9FCB6741F018D65005EDAE5 /* LoginViewController.swift in Sources */,
+				F9FCB6791F022137005EDAE5 /* ChatViewController.swift in Sources */,
 				F9FCB6461F017CC2005EDAE5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

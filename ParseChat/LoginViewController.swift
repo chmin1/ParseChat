@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
                 self.isLoggedIn()
             } else {
                 print("User logged in successfully")
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
         

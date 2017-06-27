@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eMb-PR-cMM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,6 +77,7 @@
                     <connections>
                         <outlet property="PasswordLabel" destination="n2H-39-8F0" id="If5-0p-o6L"/>
                         <outlet property="usernameLabel" destination="pSb-Bx-zFQ" id="PIp-fe-7Tj"/>
+                        <segue destination="q8p-JZ-de2" kind="presentation" identifier="loginSegue" id="VQh-Fy-W8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,6 +88,45 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="719.20000000000005" y="85.907046476761622"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="YKQ-J4-3cb">
+            <objects>
+                <viewController id="KTV-jc-Cyv" customClass="ChatViewController" customModule="ParseChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2SQ-Id-yYi"/>
+                        <viewControllerLayoutGuide type="bottom" id="e5B-kt-O5I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zfZ-GZ-myl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-9P-lbR">
+                                <rect key="frame" x="16" y="72" width="294" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwB-E6-onr">
+                                <rect key="frame" x="321" y="72" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="onPostMessage:" destination="KTV-jc-Cyv" eventType="touchUpInside" id="gbp-AD-LTC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="6B3-0d-3sB"/>
+                    <connections>
+                        <outlet property="chatMessageField" destination="Zrf-9P-lbR" id="pNU-vh-MCo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3UG-T1-j9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2752.8000000000002" y="85.907046476761622"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="KDm-lp-zhj">
@@ -177,22 +217,22 @@
             <point key="canvasLocation" x="717.60000000000002" y="948.57571214392806"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="sJb-b0-h7q">
+        <scene sceneID="Ply-pc-amW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eMb-PR-cMM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8p-JZ-de2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xr2-d5-HB9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="byd-y7-jmZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IEZ-3G-fXB"/>
+                        <segue destination="KTV-jc-Cyv" kind="relationship" relationship="rootViewController" id="AWh-f8-S7v"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rFC-QQ-JTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsI-HS-wha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="85.907046476761622"/>
+            <point key="canvasLocation" x="1751" y="86"/>
         </scene>
     </scenes>
 </document>
