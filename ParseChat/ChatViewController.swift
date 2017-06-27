@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ChatViewController: UIViewController {
 
@@ -14,6 +15,21 @@ class ChatViewController: UIViewController {
     
     @IBAction func onPostMessage(_ sender: Any) {
         
+        //Create Parse Object for the chat message with the className ID
+        let chatMessage = PFObject(className: "Message_fbuJuly2017")
+        
+        // Store text entered in text field into the object
+        chatMessage["text"] = chatMessageField.text ?? ""
+        
+        //save the message to Parse database, or print any errors
+        chatMessage.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                print("The message was saved!")
+                self.chatMessageField.text = ""
+            } else if let error = error {
+                print("Problem saving message: \(error.localizedDescription)")
+            }
+        }
     }
     
     override func viewDidLoad() {
